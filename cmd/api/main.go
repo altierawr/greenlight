@@ -6,6 +6,7 @@ import (
 	"flag"
 	"net/http"
 	"os"
+	"sync"
 	"time"
 
 	"github.com/altierawr/greenlight/internal/data"
@@ -44,6 +45,7 @@ type application struct {
 	logger *jsonlog.Logger
 	models data.Models
 	mailer mailer.Mailer
+	wg     sync.WaitGroup
 }
 
 func main() {
